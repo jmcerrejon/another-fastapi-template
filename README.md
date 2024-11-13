@@ -8,31 +8,45 @@ This template provides a basic setup for a FastAPI application with a health end
 
 ## Requirements
 
--   Python 3.7+
+-   Python 3.12+
 -   FastAPI
 -   Uvicorn
+-   SQLAlchemy
 
 ## Installation
 
 1. Clone the repository:
 
-    ```bash
-    git clone https://github.com/jmcerrejon/another-fastapi-template.git
-    cd another-fastapi-template
-    ```
+```bash
+git clone https://github.com/jmcerrejon/another-fastapi-template.git
+cd another-fastapi-template
+```
 
 2. Create and activate a virtual environment:
 
-    ```bash
-    python -m venv .venv
-    source .venv/bin/activate  # On Windows use `.venv\Scripts\activate`
-    ```
+```bash
+python -m venv .venv
+source .venv/bin/activate  # On Windows use `.venv\Scripts\activate`
+```
 
 3. Install the dependencies:
 
-    ```bash
-    pip install -r requirements.txt
-    ```
+```bash
+pip install -r requirements.txt
+```
+
+If you want to use the customizer script, run the following command:
+
+```bash
+./scripts/boilerplate-customizer.sh
+```
+
+If you want to start a new project once you have cloned the repository, remove the `.git` directory and start a new git repository:
+
+```bash
+rm -rf .git
+git init
+```
 
 ## Running
 
@@ -50,6 +64,13 @@ To run the tests, run the following command:
 ```bash
 PYTHONPATH=. pytest tests/units
 ```
+
+## TODO
+
+-   [ ] Add Database support (default: sqlite).
+-   [ ] Add Poetry.
+-   [ ] Modify scripts/boilerplate-customizer.sh to add more options.
+-   [ ] Add Dockerfile.
 
 ## License
 
