@@ -85,3 +85,7 @@ PYTHONPATH=. pytest tests/units
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Author
+
+-   [Jose Cerrejon](mailto:ulysess@gmail.com)
