@@ -88,4 +88,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Author
 
--   [Jose Cerrejon](mailto:ulysess@gmail.com)
+-   Made with ❤️ and ☕️ by [Jose Cerrejon](mailto:ulysess@gmail.com).
