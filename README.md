@@ -50,6 +50,14 @@ git init
 git remote add upstream git@github.com:jmcerrejon/another-fastapi-template.git
 ```
 
+When you want to get updates from this repository:
+
+```bash
+git pull upstream main
+```
+
+Thank you! ❤️
+
 ## Running
 
 To start the server, run the following command:
