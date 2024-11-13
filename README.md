@@ -41,11 +41,13 @@ If you want to use the customizer script, run the following command:
 ./scripts/boilerplate-customizer.sh
 ```
 
-If you want to start a new project once you have cloned the repository, remove the `.git` directory and start a new git repository:
+If you want to start a new project once you have cloned the repository, remove the `.git` directory and start a new git repository. But, maybe you want to get updates from this repository. You can add it as a remote upstream:
 
 ```bash
 rm -rf .git
 git init
+# (Optional) Add the remote repository as upstream
+git remote add upstream git@github.com:jmcerrejon/another-fastapi-template.git
 ```
 
 ## Running
