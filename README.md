@@ -77,7 +77,7 @@ PYTHONPATH=. pytest tests/units
 
 ## TODO
 
--   [ ] Add Database support (default: sqlite).
+-   [x] Add Database support (default: sqlite).
 -   [ ] Add Poetry.
 -   [ ] Modify scripts/boilerplate-customizer.sh to add more options.
 -   [ ] Add Dockerfile.
