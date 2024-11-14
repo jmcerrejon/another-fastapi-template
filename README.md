@@ -75,6 +75,34 @@ To run the tests, run the following command:
 PYTHONPATH=. pytest tests/units
 ```
 
+## Using Poetry
+
+To install and use Poetry in the project, follow these steps:
+
+1. Install Poetry:
+
+```bash
+pip install poetry
+```
+
+2. Install the dependencies using Poetry:
+
+```bash
+poetry install
+```
+
+3. To add a new dependency, use the following command:
+
+```bash
+poetry add <package_name>
+```
+
+4. To run the project using Poetry, use the following command:
+
+```bash
+poetry run uvicorn main:app --host 127.0.0.1 --port 8000 --reload
+```
+
 ## TODO
 
 -   [x] Add Database support (default: sqlite).
