@@ -6,13 +6,13 @@ SQLALCHEMY_DATABASE_URL = "sqlite:///./DB.db"
 
 engine = create_engine(SQLALCHEMY_DATABASE_URL)
 
-SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
-
 Base = declarative_base()
+Base.metadata.create_all(bind=engine)
+
+SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
 
 def get_db():
-    Base.metadata.create_all(bind=engine)
     db = SessionLocal()
     try:
         yield db
