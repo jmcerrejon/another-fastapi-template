@@ -35,6 +35,12 @@ source .venv/bin/activate  # On Windows use `.venv\Scripts\activate`
 pip install -r requirements.txt
 ```
 
+4. Copy .env.example to .env and modify the values:
+
+```bash
+cp .env.example .env
+```
+
 If you want to use the customizer script, run the following command:
 
 ```bash
@@ -106,9 +112,12 @@ poetry run uvicorn main:app --host 127.0.0.1 --port 8000 --reload
 ## TODO
 
 -   [x] Add Database support (default: sqlite).
+-   [x] Add .env support.
 -   [ ] Add Poetry.
 -   [ ] Modify scripts/boilerplate-customizer.sh to add more options.
 -   [ ] Add Dockerfile.
+-   [ ] Log system.
+-   [ ] More testing.
 
 ## License
 
@@ -117,3 +126,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## Author
 
 -   Made with ❤️ and ☕️ by [Jose Cerrejon](mailto:ulysess@gmail.com).
+-   Inspired by a post by [@aberrospic1](https://medium.com/@aberrospic1/crud-operations-with-fastapi-c2de026e5862).
