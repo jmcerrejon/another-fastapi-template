@@ -4,7 +4,7 @@ This is my custom template project for a simple FastAPI application.
 
 ## Description
 
-This template provides a basic setup for a FastAPI application with a health endpoint to check the server status.
+This template provides a basic setup for a FastAPI application.
 
 ## Requirements
 
@@ -12,6 +12,8 @@ This template provides a basic setup for a FastAPI application with a health end
 -   FastAPI
 -   Uvicorn
 -   SQLAlchemy
+-   Poetry (optional)
+-   Pytest
 
 ## Installation
 
@@ -68,7 +70,6 @@ To start the server, run the following command:
 
 ```bash
 uvicorn main:app --host 127.0.0.1 --port 8000 --reload
-# Go to http://127.0.0.1:8000/health
 ```
 
 ## Testing
