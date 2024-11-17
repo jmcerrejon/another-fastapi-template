@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "another-fastapi-template"
 version = "1.0.0"
-description = "This template provides a basic setup for a FastAPI application with a health endpoint to check the server status."
+description = "This template provides a basic setup for a FastAPI application."
 authors = ["Jose Cerrejon <ulysess@gmail.com>"]
 package-mode = false
 
@@ -13,7 +13,6 @@ fastapi = "*"
 uvicorn = "*"
 sqlalchemy = "*"
 pytest = "*"
-httpx = "*"
 
 [tool.pytest]
 pythonpath = [
