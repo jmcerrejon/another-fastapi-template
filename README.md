@@ -77,7 +77,7 @@ uvicorn main:app --host 127.0.0.1 --port 8000 --reload
 To run the tests, run the following command:
 
 ```bash
-PYTHONPATH=. pytest tests/units
+PYTHONPATH=. pytest
 ```
 
 ## Using Poetry
