@@ -225,3 +225,4 @@ pyrightconfig.json
 DB.db
 DB.db-shm
 DB.db-wal
+test.db
