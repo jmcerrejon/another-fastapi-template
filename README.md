@@ -62,8 +62,6 @@ When you want to get updates from this repository:
 git pull upstream main
 ```
 
-Thank you! ❤️
-
 ## Running
 
 To start the server, run the following command:
