@@ -113,11 +113,11 @@ poetry run uvicorn main:app --host 127.0.0.1 --port 8000 --reload
 
 -   [x] Add Database support (default: sqlite).
 -   [x] Add .env support.
--   [ ] Add Poetry.
+-   [x] Add Poetry.
+-   [ ] More testing.
 -   [ ] Modify scripts/boilerplate-customizer.sh to add more options.
 -   [ ] Add Dockerfile.
 -   [ ] Log system.
--   [ ] More testing.
 
 ## License
 
