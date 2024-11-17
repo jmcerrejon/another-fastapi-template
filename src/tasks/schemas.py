@@ -1,4 +1,4 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, ConfigDict
 
 
 class OkResponse(BaseModel):
@@ -11,8 +11,7 @@ class TaskCreate(BaseModel):
 
 
 class Task(BaseModel):
+    model_config = ConfigDict(from_attributes=True)
+
     id: int
     task: str
-
-    class Config:
-        from_attributes = True
