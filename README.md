@@ -72,6 +72,14 @@ To start the server, run the following command:
 uvicorn main:app --host 127.0.0.1 --port 8000 --reload
 ```
 
+## Docker
+
+You have a containerized version of the app. To build the image, run:
+
+```sh
+docker build -t fastapi-template . && docker run -d -p 8000:8000 fastapi-template
+```
+
 ## Testing
 
 To run the tests, run the following command:
