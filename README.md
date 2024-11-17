@@ -113,11 +113,12 @@ poetry run uvicorn main:app --host 127.0.0.1 --port 8000 --reload
 
 -   [x] Add Database support (default: sqlite).
 -   [x] Add .env support.
+-   [x] Add SQLAlchemy support.
 -   [x] Add Poetry.
--   [ ] More testing.
--   [ ] Modify scripts/boilerplate-customizer.sh to add more options.
+-   [x] Testing.
 -   [ ] Add Dockerfile.
 -   [ ] Log system.
+-   [ ] Modify scripts/boilerplate-customizer.sh to add more options.
 
 ## License
 
@@ -126,4 +127,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## Author
 
 -   Made with ❤️ and ☕️ by [Jose Cerrejon](mailto:ulysess@gmail.com).
--   Inspired by a post by [@aberrospic1](https://medium.com/@aberrospic1/crud-operations-with-fastapi-c2de026e5862).
+-   Inspired on a post by [@aberrospic1](https://medium.com/@aberrospic1/crud-operations-with-fastapi-c2de026e5862) & [@lou_adam](https://medium.com/@lou_adam/best-practices-for-building-deploying-rest-api-as-data-engineer-concrete-example-with-fastapi-84522745a9f7#7dfc).
