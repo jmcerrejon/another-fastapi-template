@@ -1,6 +1,8 @@
 from sqlalchemy import Column, Integer, String
 
-from src.database import Base
+from src.database import Database
+
+Base = Database().Base
 
 
 class Task(Base):
