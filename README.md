@@ -124,7 +124,7 @@ poetry run uvicorn main:app --host 127.0.0.1 --port 8000 --reload
 -   [x] Add Poetry.
 -   [x] Testing.
 -   [x] Add Dockerfile.
--   [ ] Log system.
+-   [x] Log system.
 -   [ ] Modify scripts/boilerplate-customizer.sh to add more options.
 
 ## License
