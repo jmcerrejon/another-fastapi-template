@@ -1,12 +1,25 @@
-from functools import lru_cache as singleton
 from typing import Generator
 
-from sqlalchemy import create_engine
+from sqlalchemy import create_engine, inspect
 from sqlalchemy.orm import Session, declarative_base, sessionmaker
 
+from src.utils.logger import logger
 
-@singleton
-class Database:
+
+class SingletonMeta(type):
+    """
+    Metaclass to implement the Singleton pattern.
+    """
+
+    _instances: dict[type, object] = {}
+
+    def __call__(cls, *args, **kwargs):
+        if cls not in cls._instances:
+            cls._instances[cls] = super(SingletonMeta, cls).__call__(*args, **kwargs)
+        return cls._instances[cls]
+
+
+class Database(metaclass=SingletonMeta):
     __DATABASE_URL = "sqlite:///./DB.db"
 
     def __init__(self):
@@ -16,9 +29,14 @@ class Database:
         self.SessionLocal = sessionmaker(
             autocommit=False, autoflush=False, bind=self.engine
         )
+        logger.info("Database initialized.")
 
     def create_tables(self) -> None:
+        if inspect(self.engine).has_table("tasks"):
+            return None
+
         self.Base.metadata.create_all(bind=self.engine)
+        logger.info("Tables created.")
 
     def get_db(self) -> Generator[Session, None, None]:
         db = self.SessionLocal()
