@@ -2,7 +2,9 @@ from sqlalchemy import Column, Integer, String
 
 from src.database import Database
 
-Base = Database().Base
+database = Database()
+database.create_tables()
+Base = database.Base
 
 
 class Task(Base):
