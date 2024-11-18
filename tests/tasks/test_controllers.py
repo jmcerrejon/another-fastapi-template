@@ -94,7 +94,7 @@ def test_create_task_exception():
         create_task(task_create, session)
 
     assert exc_info.value.status_code == 500
-    assert exc_info.value.detail == "Error creating task: Database error"
+    assert exc_info.value.detail == "Error creating task: Database error."
     session.add.assert_called_once()
     session.commit.assert_not_called()
     session.refresh.assert_not_called()
@@ -120,7 +120,7 @@ def test_update_task_not_found():
         update_task(1, "Updated Task", session)
 
     assert exc_info.value.status_code == 404
-    assert exc_info.value.detail == "Task with id 1 not found"
+    assert exc_info.value.detail == "Task with id 1 not found."
     session.get.assert_called_once_with(models.Task, 1)
     session.commit.assert_not_called()
 
@@ -146,7 +146,7 @@ def test_delete_task_not_found():
         delete_task(1, session)
 
     assert exc_info.value.status_code == 404
-    assert exc_info.value.detail == "Task with id 1 not found"
+    assert exc_info.value.detail == "Task with id 1 not found."
     session.get.assert_called_once_with(models.Task, 1)
     session.delete.assert_not_called()
     session.commit.assert_not_called()
