@@ -34,4 +34,4 @@ def setup_logging():
 
 # Initialize the logger
 logger = setup_logging()
-logger.info("App initialized")
+logger.info("Logger initialized")
