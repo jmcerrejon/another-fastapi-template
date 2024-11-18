@@ -77,7 +77,7 @@ uvicorn main:app --host 127.0.0.1 --port 8000 --reload
 You have a containerized version of the app. To build the image, run:
 
 ```sh
-docker build -t fastapi-template . && docker run -d -p 8000:8000 fastapi-template
+docker build -t fastapi-template . && docker run -d -p 8000:8000 --name fastapi-container fastapi-template
 ```
 
 ## Testing
