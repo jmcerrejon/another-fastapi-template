@@ -3,6 +3,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from starlette.config import Config
 
+from src.database import Database
 from src.tasks.router import router
 
 config = Config(".env")
@@ -30,6 +31,9 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+# Create Database
+Database().create_tables()
 
 
 @app.get("/")
