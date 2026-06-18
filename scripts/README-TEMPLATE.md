@@ -8,16 +8,16 @@ PROJECT_DESCRIPTION
 
 ## Requirements
 
--   Python 3.7+
+-   Python 3.13+
 -   FastAPI
 -   Uvicorn
 
 This project is using DB_TYPE.
 
-This project is using [Poetry](https://python-poetry.org/) for dependency management. You can install the dependencies by running:
+This project is using [uv](https://docs.astral.sh/uv/) for dependency management. You can install the dependencies by running:
 
 ```bash
-poetry install
+uv sync
 ```
 
 ## Installation
@@ -29,17 +29,16 @@ poetry install
     cd another-fastapi-template
     ```
 
-2. Create and activate a virtual environment:
+2. Install [uv](https://docs.astral.sh/uv/getting-started/installation/) if you don't have it already:
 
     ```bash
-    python -m venv .venv
-    source .venv/bin/activate  # On Windows use `.venv\Scripts\activate`
+    curl -LsSf https://astral.sh/uv/install.sh | sh
     ```
 
-3. Install the dependencies:
+3. Sync the dependencies:
 
     ```bash
-    pip install -r requirements.txt
+    uv sync
     ```
 
 ## Running
@@ -47,7 +46,7 @@ poetry install
 To start the server, run the following command:
 
 ```bash
-uvicorn main:app --host 127.0.0.1 --port 8000 --reload
+uv run uvicorn main:app --host 127.0.0.1 --port 8000 --reload
 ```
 
 ## Testing
@@ -55,7 +54,7 @@ uvicorn main:app --host 127.0.0.1 --port 8000 --reload
 To run the tests, run the following command:
 
 ```bash
-PYTHONPATH=. pytest tests/units
+uv run pytest tests/units
 ```
 
 ## License

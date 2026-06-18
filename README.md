@@ -8,11 +8,11 @@ This template provides a basic setup for a FastAPI application.
 
 ## Requirements
 
--   Python 3.12+
+-   Python 3.13+
+-   [uv](https://docs.astral.sh/uv/) (recommended)
 -   FastAPI
 -   Uvicorn
 -   SQLAlchemy
--   Poetry (optional)
 -   Pytest
 
 ## Installation
@@ -24,17 +24,16 @@ git clone https://github.com/jmcerrejon/another-fastapi-template.git
 cd another-fastapi-template
 ```
 
-2. Create and activate a virtual environment:
+2. Install [uv](https://docs.astral.sh/uv/getting-started/installation/) if you don't have it already:
 
 ```bash
-python -m venv .venv
-source .venv/bin/activate  # On Windows use `.venv\Scripts\activate`
+curl -LsSf https://astral.sh/uv/install.sh | sh
 ```
 
-3. Install the dependencies:
+3. Sync the dependencies (creates `.venv` and installs everything pinned in `uv.lock`):
 
 ```bash
-pip install -r requirements.txt
+uv sync
 ```
 
 4. Copy .env.example to .env and modify the values:
@@ -69,7 +68,7 @@ git pull upstream main
 To start the server, run the following command:
 
 ```bash
-uvicorn main:app --host 127.0.0.1 --port 8000 --reload
+uv run uvicorn main:app --host 127.0.0.1 --port 8000 --reload
 ```
 
 ## Docker
@@ -85,35 +84,39 @@ docker build -t fastapi-template . && docker run -d -p 8000:8000 --name fastapi-
 To run the tests, run the following command:
 
 ```bash
-PYTHONPATH=. pytest
+uv run pytest
 ```
 
-## Using Poetry
+## Using uv
 
-To install and use Poetry in the project, follow these steps:
+To install and use [uv](https://docs.astral.sh/uv/) in the project, follow these steps:
 
-1. Install Poetry:
+1. Install uv (see the [installation guide](https://docs.astral.sh/uv/getting-started/installation/)).
+
+2. Sync the dependencies (creates `.venv` and installs everything pinned in `uv.lock`):
 
 ```bash
-pip install poetry
+uv sync
 ```
 
-2. Install the dependencies using Poetry:
+3. To add a new dependency, use one of the following commands:
 
 ```bash
-poetry install
+uv add <package_name>              # runtime dependency
+uv add --group dev <package_name>  # dev dependency
 ```
 
-3. To add a new dependency, use the following command:
+4. To upgrade all dependencies to the latest allowed versions and refresh `uv.lock`:
 
 ```bash
-poetry add <package_name>
+uv lock --upgrade
+uv sync
 ```
 
-4. To run the project using Poetry, use the following command:
+5. To run the project using uv, prepend `uv run` to any command:
 
 ```bash
-poetry run uvicorn main:app --host 127.0.0.1 --port 8000 --reload
+uv run uvicorn main:app --host 127.0.0.1 --port 8000 --reload
 ```
 
 ## TODO
@@ -121,7 +124,7 @@ poetry run uvicorn main:app --host 127.0.0.1 --port 8000 --reload
 -   [x] Add Database support (default: sqlite).
 -   [x] Add .env support.
 -   [x] Add SQLAlchemy support.
--   [x] Add Poetry.
+-   [x] Add uv.
 -   [x] Testing.
 -   [x] Add Dockerfile.
 -   [x] Log system.
