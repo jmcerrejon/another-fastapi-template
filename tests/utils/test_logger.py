@@ -6,10 +6,19 @@ from unittest.mock import patch
 from src.utils.logger import setup_logging
 
 
+def _clear_root_handlers() -> None:
+    # Close the handlers before dropping them, otherwise the file handler's
+    # file handle is leaked when it gets garbage collected.
+    root_logger = logging.getLogger()
+    for handler in root_logger.handlers:
+        handler.close()
+    root_logger.handlers = []
+
+
 def test_setup_logging_creates_log_file():
     with patch("src.utils.logger.datetime") as mock_datetime:
         mock_datetime.now.return_value = datetime(2023, 1, 1)
-        logging.getLogger().handlers = []
+        _clear_root_handlers()
         setup_logging()
         log_file = "logs/2023-01-01.log"
 
@@ -33,7 +42,7 @@ def test_setup_logging_adds_console_handler():
 def test_logger_logs_info_message():
     with patch("src.utils.logger.datetime") as mock_datetime:
         mock_datetime.now.return_value = datetime(2023, 1, 1)
-        logging.getLogger().handlers = []
+        _clear_root_handlers()
         logger = setup_logging()
         log_file = "logs/2023-01-01.log"
         logger.info("Test message")
