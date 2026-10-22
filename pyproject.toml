@@ -12,8 +12,12 @@ dev = [
     "uvicorn>=0.49.0",
     "sqlalchemy>=2.0.51",
     "pytest>=9.1.0",
-    "httpx2>=2.4.0",
+    "httpx2>=2.11.0",
 ]
+
+[tool.uv]
+# Transitive dep floor: fixes CVE-2026-63374, CVE-2026-63349, CVE-2026-64847
+constraint-dependencies = ["anyio>=4.14.2"]
 
 [tool.pytest]
 pythonpath = ["."]
