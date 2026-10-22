@@ -4,13 +4,14 @@ version = "1.1.0"
 description = "This template provides a basic setup for a FastAPI application."
 authors = [{ name = "Jose Cerrejon", email = "ulysess@gmail.com" }]
 requires-python = ">=3.13"
-dependencies = []
-
-[dependency-groups]
-dev = [
+dependencies = [
     "fastapi>=0.160.0",
     "uvicorn>=0.54.0",
     "sqlalchemy>=2.1.6",
+]
+
+[dependency-groups]
+dev = [
     "pytest>=9.1.1",
     "httpx2>=2.16.0",
 ]
