@@ -1,3 +1,5 @@
+from contextlib import asynccontextmanager
+
 import uvicorn
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
@@ -19,7 +21,14 @@ app_configs = {"title": PROJECT_NAME}
 if ENVIRONMENT not in SHOW_DOCS_ENVIRONMENT:
     app_configs["openapi_url"] = ""  # set url for docs as empty string
 
-app = FastAPI(**app_configs)
+
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    yield
+    Database().dispose()
+
+
+app = FastAPI(**app_configs, lifespan=lifespan)
 
 app.add_middleware(
     CORSMiddleware,

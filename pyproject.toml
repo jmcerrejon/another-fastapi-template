@@ -4,16 +4,21 @@ version = "1.1.0"
 description = "This template provides a basic setup for a FastAPI application."
 authors = [{ name = "Jose Cerrejon", email = "ulysess@gmail.com" }]
 requires-python = ">=3.13"
-dependencies = []
+dependencies = [
+    "fastapi>=0.160.0",
+    "uvicorn>=0.54.0",
+    "sqlalchemy>=2.1.6",
+]
 
 [dependency-groups]
 dev = [
-    "fastapi>=0.137.1",
-    "uvicorn>=0.49.0",
-    "sqlalchemy>=2.0.51",
-    "pytest>=9.1.0",
-    "httpx2>=2.4.0",
+    "pytest>=9.1.1",
+    "httpx2>=2.16.0",
 ]
+
+[tool.uv]
+# Transitive dep floor: fixes CVE-2026-63374, CVE-2026-63349, CVE-2026-64847
+constraint-dependencies = ["anyio>=4.14.2"]
 
 [tool.pytest]
 pythonpath = ["."]

@@ -38,6 +38,10 @@ class Database(metaclass=SingletonMeta):
         self.Base.metadata.create_all(bind=self.engine)
         logger.info("Tables created.")
 
+    def dispose(self) -> None:
+        """Dispose the engine, releasing its pooled connections."""
+        self.engine.dispose()
+
     def get_db(self) -> Generator[Session, None, None]:
         db = self.SessionLocal()
         try:
